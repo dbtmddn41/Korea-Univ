@@ -1,0 +1,39 @@
+package kuplrg
+
+object Implementation extends Template {
+
+  import Expr.*
+  import Value.*
+
+  type BOp[T] = (T, T) => T
+  def numBOp(op: BOp[BigInt], x: String): BOp[Value] =
+    case (NumV(l), NumV(r)) => NumV(op(l, r))
+    case (l, r) => error(s"invalid operation: ${l.str} $x ${r.str}")
+
+  val numAdd: BOp[Value] = numBOp(_ + _, "+")
+  val numMul: BOp[Value] = numBOp(_ * _, "*")
+
+  def interp(expr: Expr, env: Env): Value = expr match
+    case Num(n) => NumV(n)
+    case Add(l, r) => numAdd(interp(l, env), interp(r, env))
+    case Mul(l, r) => numMul(interp(l, env), interp(r, env))
+    case Val(x, e, b) => interp(b, env + (x -> interp(e, env)))
+    case Id(x) => env.getOrElse(x, error(s"free identifier $x"))
+    case Fun(p, b) => CloV(p, b, env)
+    case App(f, arg) => interp(f, env) match
+      case CloV(p, b, fenv) => interp(b, fenv + (p -> interp(arg, env)))
+      case v => error(s"not a function ${v.str}")
+      
+
+
+  def interpDS(expr: Expr, env: Env): Value = expr match
+    case Num(n) => NumV(n)
+    case Add(l, r) => numAdd(interpDS(l, env), interpDS(r, env))
+    case Mul(l, r) => numMul(interpDS(l, env), interpDS(r, env))
+    case Val(x, e, b) => interpDS(b, env + (x -> interpDS(e, env)))
+    case Id(x) => env.getOrElse(x, error(s"free identifier $x"))
+    case Fun(p, b) => CloV(p, b, env)
+    case App(f, arg) => interpDS(f, env) match
+      case CloV(p, b, e) => interpDS(b, env + (p -> interpDS(arg, env)))
+      case v => error(s"not a function ${v.str}")
+}
