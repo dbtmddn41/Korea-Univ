@@ -2,29 +2,20 @@
 
 # `STFAE` - `TFAE` with Subtype Polymorphism
 
-Please download the template code as follows:
-```bash
-sbt new ku-plrg-classroom/stfae.g8
-```
-
-> [!WARNING]
->
-> Read the [common instructions](/scala.md) first if you have not read them.
-
-The template source code contains the following files:
+The source code contains the following files:
 <pre><code>stfae
 └─ src
    ├─ main/scala/kuplrg
    │  ├── STFAE.scala ─────────── The definition of the STFAE and parsers
-   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENT AND SUBMIT THIS FILE ]]</b>
+   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENTED FILE ]]</b>
    │  ├── Template.scala ──────── The templates of target functions
    │  └── error.scala ─────────── The definition of the `error` function
    └─ test/scala/kuplrg
-      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADD YOUR OWN TESTS ]]</b>
+      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADDED TESTS ]]</b>
       └─ SpecBase.scala ───────── The base class of test cases</code></pre>
 
 The `STFAE` language is an extension of the [`TFAE`](../tfae/README.md) language
-with **subtype polymorphism**.  In this assignment, you will implement two
+with **subtype polymorphism**.  This assignment implemented two
 functions: `typeCheck` and `interp`.
 
 ## Specification of `STFAE` language
@@ -35,7 +26,7 @@ semantics of the `STFAE` language.
 ### Type Errors
 
 If the type checker finds a type error in a given expression, the `typeCheck`
-function should throw an exception using the `error` function:
+function throws an exception using the `error` function:
 ```scala
 testExc(eval("(x: Number) => x(1)"))
 ```
@@ -43,7 +34,7 @@ testExc(eval("(x: Number) => x(1)"))
 ### Run-time Errors
 
 Similarly, if the semantics of the given expression is not defined, the `interp`
-function should throw an exception using the `error` function:
+function throws an exception using the `error` function:
 ```scala
 testExc(eval("x"))
 ```
@@ -81,7 +72,7 @@ given type environment `tenv` and returns the type of the expression:
 ```scala
 def typeCheck(expr: Expr, tenv: TypeEnv): Type = ???
 ```
-**Please implement the `typeCheck` function in the `Implementation.scala`
+**Implemented the `typeCheck` function in the `Implementation.scala`
 file.**
 
 ## (Problem #2) `interp`
@@ -91,4 +82,4 @@ environment `env` and returns the result:
 ```scala
 def interp(expr: Expr, env: Env): Value = ???
 ```
-**Please implement the `interp` function in the `Implementation.scala` file.**
+**Implemented the `interp` function in the `Implementation.scala` file.**

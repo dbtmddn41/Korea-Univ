@@ -2,30 +2,21 @@
 
 # `FAE-cps` - `FAE` with Continuation-Passing Style
 
-Please download the template code as follows:
-```bash
-sbt new ku-plrg-classroom/fae-cps.g8
-```
-
-> [!WARNING]
->
-> Read the [common instructions](/scala.md) first if you have not read them.
-
-The template source code contains the following files:
+The source code contains the following files:
 <pre><code>fae-cps
 └─ src
    ├─ main/scala/kuplrg
    │  ├── FAE.scala ───────────── The definition of the FAE and parsers
-   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENT AND SUBMIT THIS FILE ]]</b>
+   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENTED FILE ]]</b>
    │  ├── Template.scala ──────── The templates of target functions
    │  └── error.scala ─────────── The definition of the `error` function
    └─ test/scala/kuplrg
-      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADD YOUR OWN TESTS ]]</b>
+      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADDED TESTS ]]</b>
       └─ SpecBase.scala ───────── The base class of test cases</code></pre>
 
 The `FAE-cps` language is exactly the same as the [`FAE`](../fae/README.md)
 language, but it uses the **continuation-passing style** (CPS) for the
-interpreter. In this assignment, you will implement two functions: `interpCPS`
+interpreter. This assignment implemented two functions: `interpCPS`
 and `reduce`.
 
 ## Specification of `FAE-cps` language
@@ -37,7 +28,7 @@ continuation-passing style (CPS) in [`fae-cps-spec.pdf`](./fae-cps-spec.pdf).
 ### Run-time Errors
 
 If the given expression meets the following conditions during evaluation, the
-`interpCPS` or `reduce` function should throw an exception using the `error`
+`interpCPS` or `reduce` function throws an exception using the `error`
 function with corresponding error messages containing their error kinds:
 
 | Error kind | Description |
@@ -61,7 +52,7 @@ environment `env` and the continuation function `k` to produce a value:
 ```scala
 def interpCPS(expr: Expr, env: Env, k: Value => Value): Value = ???
 ```
-**Please implement the `interpCPS` function in the `Implementation.scala` file.**
+**Implemented the `interpCPS` function in the `Implementation.scala` file.**
 
 ## (Problem #2) `reduce` (50 points)
 
@@ -82,4 +73,4 @@ and a stack `s` into a new state `(k', s')`:
 def reduce(k: Cont, s: Stack): (Cont, Stack) = ???
 ```
 
-**Please implement the `reduce` function in the `Implementation.scala` file.**
+**Implemented the `reduce` function in the `Implementation.scala` file.**

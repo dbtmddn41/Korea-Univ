@@ -2,29 +2,20 @@
 
 # `TIFAE` - `TRFAE` with Type Inference
 
-Please download the template code as follows:
-```bash
-sbt new ku-plrg-classroom/tifae.g8
-```
-
-> [!WARNING]
->
-> Read the [common instructions](/scala.md) first if you have not read them.
-
-The template source code contains the following files:
+The source code contains the following files:
 <pre><code>tifae
 └─ src
    ├─ main/scala/kuplrg
    │  ├── TIFAE.scala ─────────── The definition of the TIFAE and parsers
-   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENT AND SUBMIT THIS FILE ]]</b>
+   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENTED FILE ]]</b>
    │  ├── Template.scala ──────── The templates of target functions
    │  └── error.scala ─────────── The definition of the `error` function
    └─ test/scala/kuplrg
-      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADD YOUR OWN TESTS ]]</b>
+      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADDED TESTS ]]</b>
       └─ SpecBase.scala ───────── The base class of test cases</code></pre>
 
 The `TIFAE` language is an extension of the [`TRFAE`](../trfae/README.md) language
-with **type inference**.  In this assignment, you will implement two
+with **type inference**.  This assignment implemented two
 functions: `typeCheck` and `interp`.
 
 ## Specification of `TIFAE` language
@@ -35,7 +26,7 @@ semantics of the `TIFAE` language.
 ### Type Errors
 
 If the type checker finds a type error in a given expression, the `typeCheck`
-function should throw an exception using the `error` function:
+function throws an exception using the `error` function:
 ```scala
 testExc(eval("x => 1 + true"))
 ```
@@ -43,7 +34,7 @@ testExc(eval("x => 1 + true"))
 ### Run-time Errors
 
 Similarly, if the semantics of the given expression is not defined, the `interp`
-function should throw an exception using the `error` function:
+function throws an exception using the `error` function:
 ```scala
 testExc(eval("1 / 0"))
 ```
@@ -86,7 +77,7 @@ def typeCheck(
   sol: Solution
 ): (Type, Solution) = ???
 ```
-**Please implement the `typeCheck` function in the `Implementation.scala`
+**Implemented the `typeCheck` function in the `Implementation.scala`
 file.**
 
 ## (Problem #2) `interp`
@@ -96,4 +87,4 @@ environment `env` and returns the result:
 ```scala
 def interp(expr: Expr, env: Env): Value = ???
 ```
-**Please implement the `interp` function in the `Implementation.scala` file.**
+**Implemented the `interp` function in the `Implementation.scala` file.**

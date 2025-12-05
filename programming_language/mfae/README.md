@@ -2,29 +2,20 @@
 
 # `MFAE` - `FAE` with Mutable Variables
 
-Please download the template code as follows:
-```bash
-sbt new ku-plrg-classroom/mfae.g8
-```
-
-> [!WARNING]
->
-> Read the [common instructions](/scala.md) first if you have not read them.
-
-The template source code contains the following files:
+The source code contains the following files:
 <pre><code>mfae
 └─ src
    ├─ main/scala/kuplrg
    │  ├── MFAE.scala ──────────── The definition of the MFAE and parsers
-   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENT AND SUBMIT THIS FILE ]]</b>
+   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENTED FILE ]]</b>
    │  ├── Template.scala ──────── The templates of target functions
    │  └── error.scala ─────────── The definition of the `error` function
    └─ test/scala/kuplrg
-      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADD YOUR OWN TESTS ]]</b>
+      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADDED TESTS ]]</b>
       └─ SpecBase.scala ───────── The base class of test cases</code></pre>
 
 The `MFAE` language is an extension of the [`FAE`](../fae/README.md) language
-with **mutable variables**. In this assignment, you will implement two
+with **mutable variables**. This assignment implemented two
 functions: `interp` and `interpCBR`.
 
 ## Specification of `MFAE` language
@@ -35,7 +26,7 @@ See the [`mfae-spec.pdf`](./mfae-spec.pdf) for the syntax and semantics of the
 ### Run-time Errors
 
 If the given expression meets the following conditions during evaluation, the
-`interp` (or `interpCBR`) function should throw an exception using the `error`
+`interp` (or `interpCBR`) function throws an exception using the `error`
 function with corresponding error messages containing their error kinds:
 
 | Error kind | Description |
@@ -61,7 +52,7 @@ the result:
 ```scala
 def interp(expr: Expr, env: Env, mem: Mem): (Value, Mem) = ???
 ```
-**Please implement the `interp` function in the `Implementation.scala` file.**
+**Implemented the `interp` function in the `Implementation.scala` file.**
 
 ## (Problem #2) `interpCBR`
 
@@ -79,12 +70,3 @@ the result:
 ```scala
 def interpCBR(expr: Expr, env: Env, mem: Mem): (Value, Mem) = ???
 ```
-> [!WARNING]
->
-> The original `interp` function uses the **call-by-value (CBV)**
-> evaluation strategy. But, the `interpCBR` function uses the
-> **call-by-reference (CBR)** evaluation strategy. Please see the Section 4.1 of
-> the [spec](./mfae-spec.pdf) for the difference between the CBV and the CBR
-> evaluation strategies.
-
-**Please implement the `interpCBR` function in the `Implementation.scala` file.**

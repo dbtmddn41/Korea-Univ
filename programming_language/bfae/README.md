@@ -2,29 +2,20 @@
 
 # `BFAE` - `FAE` with Mutable Boxes
 
-Please download the template code as follows:
-```bash
-sbt new ku-plrg-classroom/bfae.g8
-```
-
-> [!WARNING]
->
-> Read the [common instructions](/scala.md) first if you have not read them.
-
-The template source code contains the following files:
+The source code contains the following files:
 <pre><code>bfae
 └─ src
    ├─ main/scala/kuplrg
    │  ├── BFAE.scala ──────────── The definition of the BFAE and parsers
-   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENT AND SUBMIT THIS FILE ]]</b>
+   │  ├── Implementation.scala ── <b style='color:red;'>[[ IMPLEMENTED FILE ]]</b>
    │  ├── Template.scala ──────── The templates of target functions
    │  └── error.scala ─────────── The definition of the `error` function
    └─ test/scala/kuplrg
-      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADD YOUR OWN TESTS ]]</b>
+      ├─ Spec.scala ───────────── <b style='color:red;'>[[ ADDED TESTS ]]</b>
       └─ SpecBase.scala ───────── The base class of test cases</code></pre>
 
 The `BFAE` language is an extension of the [`FAE`](../fae/README.md) language
-with **mutable boxes**. In this assignment, you will implement the `interp`
+with **mutable boxes**. This assignment implemented the `interp`
 function.
 
 ## Specification of `BFAE` language
@@ -35,7 +26,7 @@ See the [`bfae-spec.pdf`](./bfae-spec.pdf) for the syntax and semantics of the
 ### Run-time Errors
 
 If the given expression meets the following conditions during evaluation, the
-`interp` function should throw an exception using the `error` function with
+`interp` function throws an exception using the `error` function with
 corresponding error messages containing their error kinds:
 
 | Error kind | Description |
@@ -62,4 +53,4 @@ the result:
 ```scala
 def interp(expr: Expr, env: Env, mem: Mem): (Value, Mem) = ???
 ```
-**Please implement the `interp` function in the `Implementation.scala` file.**
+**Implemented the `interp` function in the `Implementation.scala` file.**
